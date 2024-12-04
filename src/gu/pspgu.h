@@ -1515,7 +1515,7 @@ void guSwapBuffersCallback(GuSwapBuffersCallback callback);
   * @param height - Height of the buffer, normally the height of the screen 272
   * @param psm - Which pixel format to use
   * 
-  * @return A pointer to the buffer's relative to vram start (as required by sceGuDispBuffer, sceGuDrawBuffer, sceGuDepthBuffer and sceGuDrawBufferList)
+  * @return A pointer to the buffer's relative to vram start (as required by sceGuDispBuffer, sceGuDrawBuffer, sceGuDepthBuffer and sceGuDrawBufferList). NULL if the vram is full.
 **/
 void* guGetStaticVramBuffer(unsigned int width, unsigned int height, unsigned int psm);
 
@@ -1534,7 +1534,7 @@ void* guGetStaticVramBuffer(unsigned int width, unsigned int height, unsigned in
   * @param height - Height of the texture (must be a power of 2)
   * @param psm - Which pixel format to use
   * 
-  * @return A pointer to the texture
+  * @return A pointer to the texture. NULL if the vram is full.
 **/
 void* guGetStaticVramTexture(unsigned int width, unsigned int height, unsigned int psm);
 

@@ -44,6 +44,10 @@ void* guGetStaticVramBuffer(unsigned int width, unsigned int height, unsigned in
 	staticOffset = (staticOffset + (ALIGNMENT-1)) &~ (ALIGNMENT-1);
 	void* result = (void*)staticOffset;
 	staticOffset += memSize;
+	if (staticOffset > sceGeEdramGetSize()) {
+		staticOffset -= memSize;
+		return NULL;
+	}
 
 	return result;
 }
